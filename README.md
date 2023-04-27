@@ -25,7 +25,7 @@ Create a resource group
 
 Deploy an instance of JBoss EAP on a virtual machine
 
-`az deployment group create --resource-group eap --template-file ./SaaS-ARM.json --parameters ./parameters.json --parameters adminPublicKey=$( cat ~/.ssh/id_rsa.pub)`
+`az deployment group create --resource-group eap --template-file ./SaaS-ARM.json --parameters ./parameters.json --parameters adminPublicKey="$( cat ~/.ssh/id_rsa.pub)"`
 
 Once the deployment is complete, find the public IP address
 

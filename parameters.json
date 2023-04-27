@@ -41,6 +41,19 @@
                         "destinationAddressPrefix": "*",
                         "destinationPortRange": "8080"
                     }
+                },
+                {
+                    "name": "WILDFLY-ADMIN",
+                    "properties": {
+                        "priority": 320,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "9990"
+                    }
                 }
             ]
         },
@@ -99,7 +112,7 @@
             "value": "Detach"
         },
         "adminUsername": {
-            "value": "admin-user"
+            "value": "azureuser"
         }
     }
 }

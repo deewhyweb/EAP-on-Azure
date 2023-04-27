@@ -65,7 +65,7 @@
         "adminUsername": {
             "type": "string"
         },
-        "adminPassword": {
+        "adminPublicKey": {
             "type": "secureString"
         }
     },
@@ -183,10 +183,15 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineComputerName')]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]",
                     "linuxConfiguration": {
-                        "patchSettings": {
-                            "patchMode": "ImageDefault"
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+                                    "keyData": "[parameters('adminPublicKey')]"
+                                }
+                            ]
                         }
                     }
                 },

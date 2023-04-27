@@ -22,13 +22,10 @@ Create a resource group
 
 `az group create --resource-group eap --location eastus`
 
-Set an admin password
-
-`export PASSWORD=<your password>`
 
 Deploy an instance of JBoss EAP on a virtual machine
 
-`az deployment group create --resource-group eap --template-file ./SaaS-ARM.json --parameters ./parameters.json --parameters adminPassword=$PASSWORD`
+`az deployment group create --resource-group eap --template-file ./SaaS-ARM.json --parameters ./parameters.json --parameters adminPublicKey=$( cat ~/.ssh/id_rsa.pub)`
 
 Once the deployment is complete, find the public IP address
 
@@ -41,8 +38,6 @@ Store the IP address in an environment variable
 Login to the virtual machine using SSH
 
 `ssh admin-user@$IP_ADDRESS`
-
-Enter the password you seet previously
 
 Switch to root user
 

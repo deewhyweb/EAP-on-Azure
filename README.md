@@ -37,7 +37,7 @@ Store the IP address in an environment variable
 
 Login to the virtual machine using SSH
 
-`ssh admin-user@$IP_ADDRESS`
+`ssh azureuser@$IP_ADDRESS`
 
 Switch to root user
 
